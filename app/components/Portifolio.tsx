@@ -1,28 +1,4 @@
-interface PortifolioTipes{
-  imagePath: string;
-  imageTitle: string;
-  imageDescri: string;
-
-}
-
-function PortifolioEstrutura({ imagePath, imageTitle, imageDescri}:PortifolioTipes) {
-  return (
-  <div>
-        <div className="bg-white">
-          <img className="w-full" src={imagePath} alt="pic02" />
-          <div className="p-6">
-            <h2 className="font-bold mx-2 my-4">{imageTitle}</h2>
-            <p className="text-gray-400 mx-2 my-2">{imageDescri}</p>
-            <a href="#">
-              <button className="w-full bg-gray-800 text-white text-sm font-bold py-2 rounded">
-                Find out more
-              </button>
-            </a>
-          </div>
-        </div>
-  </div>
-  );
-}
+import PortifolioEstrutura from "./PortifolioEstrutura";
 
 export default function Portifolio() {
   const artes = [
@@ -44,7 +20,7 @@ export default function Portifolio() {
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {artes.map((arte) => (<PortifolioEstrutura imagePath={arte.imagePath} imageTitle={arte.imageTitle} imageDescri={arte.imageDescri}/>))}
+        {artes.map((arte) => (<PortifolioEstrutura key={arte.imagePath} imagePath={arte.imagePath} imageTitle={arte.imageTitle} imageDescri={arte.imageDescri}/>))}
       </div>
     </section>
   );
